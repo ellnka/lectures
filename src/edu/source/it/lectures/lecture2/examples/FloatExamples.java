@@ -8,5 +8,11 @@ public class FloatExamples {
         total += 5.8;
         System.out.println(total);
 
+        float f1 = 0.7f;
+        float f2 = 0.3f + 0.4f;
+        System.out.println(f1);
+        System.out.println(f2);
+        System.out.println("f1==f2: "+(f1==f2));
+
     }
 }
