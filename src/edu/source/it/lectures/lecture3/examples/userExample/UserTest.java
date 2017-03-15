@@ -4,7 +4,7 @@ public class UserTest {
     static String s;
     public static void main(String[] args) {
         User user = new User();
-        User user2 = new User();
+        User user2 = new User("Tom");
         user.setFirstName("John");
         user.sayHi();
         doSmth(user);

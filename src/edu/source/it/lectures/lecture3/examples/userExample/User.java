@@ -8,6 +8,14 @@ public class User {
     private long birthday;
     private int writeCounter;
 
+    public User() {
+
+    }
+
+    public User(String firstName) {
+        this.firstName = firstName;
+    }
+
     public int getWriteCounter() {
         return writeCounter;
     }
