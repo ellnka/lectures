@@ -1,6 +1,7 @@
 package edu.source.it.lectures.lecture4.homework.visitors;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 public class Visitor {
@@ -24,7 +25,7 @@ public class Visitor {
 
     public static  Visitor[] createVisitors() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(calendar.YEAR, calendar.MONTH, calendar.DAY_OF_MONTH, 0, 0, 0);
+        calendar.set(new Date().getYear(), new Date().getMonth(), new Date().getDate(), 0, 0, 0);
         long startWork = calendar.getTime().getTime() + 9 * 60 * 60 * 1000;
         long endWork = startWork + 8 * 60 * 60 * 1000;
         Random random = new Random();

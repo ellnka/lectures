@@ -1,4 +1,4 @@
-package edu.source.it.lectures.lecture5.examples.singletone;
+package edu.source.it.lectures.lecture6.examples.singletone;
 
 public class MySingltoneTest {
     public static void main(String[] args) {
