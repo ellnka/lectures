@@ -2,7 +2,7 @@ package edu.source.it.lectures.lecture4.examples.queue;
 
 public class Node {
     private int value;
-    private Node next;
+    protected Node next;
 
     public Node(int value) {
         this.value =value;
