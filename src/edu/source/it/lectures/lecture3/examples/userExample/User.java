@@ -33,4 +33,15 @@ public class User {
         System.out.println("Hi, I'm " + firstName);
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthday=" + birthday +
+                ", writeCounter=" + writeCounter +
+                '}';
+    }
 }
