@@ -1,6 +1,6 @@
 package edu.source.it.lectures.lecture7.examples.lists;
 
-public class User /*implements Comparable*/{
+public class User implements Comparable<User> {
     protected String name;
 
     public User() {
@@ -40,13 +40,9 @@ public class User /*implements Comparable*/{
                 '}';
     }
 
-    /*@Override
-    public int compareTo(Object o) {
-        if (!(o instanceof User)) {
-            throw new ClassCastException();
-        }
-        User user = (User) o;
+    @Override
+    public int compareTo(User o) {
 
-        return name.compareTo(user.getName());
-    }*/
+        return name.compareTo(o.getName());
+    }
 }
