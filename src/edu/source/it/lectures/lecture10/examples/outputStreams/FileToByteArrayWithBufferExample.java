@@ -1,10 +1,12 @@
-package edu.source.it.lectures.lecture9.examples.output;
+package edu.source.it.lectures.lecture10.examples.outputStreams;
 
 import java.io.*;
 
-public class FileToByteArrayByByteExample {
-    public static final String PATH = "/Users/kblyumkin/Projects/SourceItLectures/resources/";
-    private static final String[] TEXTS = {"fadeToBlack.txt", "nothingElseMatters.txt", "unforgiven.txt"};
+public class FileToByteArrayWithBufferExample {
+    private static final String PATH =
+            "/Users/kblyumkin/Projects/SourceIt/resources/";
+    private static final String[] TEXTS =
+            {"fadeToBlack.txt", "nothingElseMatters.txt", "unforgiven.txt"};
 
     public static void main(String[] args) {
         for (String text : TEXTS) {
@@ -14,7 +16,8 @@ public class FileToByteArrayByByteExample {
             try {
                 is = new FileInputStream(file);
                 baos = new ByteArrayOutputStream();
-                System.out.println(new String(readAndWriteByByte(is, baos)) + "\n \n The END! \n \n ");
+                System.out.println(
+                        new String(readWithBuffer(is, baos)) + "\n \n The END! \n \n ");
 
             } catch (IOException e) {
                 System.out.println("Error opening or reading file " + file.getName());
@@ -24,14 +27,18 @@ public class FileToByteArrayByByteExample {
         }
     }
 
-    private static byte[] readAndWriteByByte(InputStream is, ByteArrayOutputStream out) throws IOException {
-        int oneByte;
-        while ((oneByte = is.read()) != -1) {
-            out.write(oneByte);
+    private static byte[] readWithBuffer(InputStream is,
+                                         ByteArrayOutputStream out) throws IOException {
+        int count;
+        byte[] buffer = new byte[10];
+        while ((count = is.read(buffer)) != -1) {
+            /*for (int index = 0; index < count; index++) {
+                out.write(buffer[index]);
+            }*/
+            out.write(buffer, 0, count);
         }
         return out.toByteArray();
     }
-
 
     private static void closeSilentlyInAndOut(InputStream in, OutputStream out) {
         if (in != null) {
