@@ -8,7 +8,7 @@ public class LetsSerializeExample {
         user.setName("John");
         user.setLastName("Black");
         user.setBirthday(new int[]{05, 05, 1998});
-
+        user.setAddress(new Address("Main", 100, "Kiev"));
         User newUser = copy(user);
         user.setName("Peter");
         user.getBirthday()[0] = 0;

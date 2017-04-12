@@ -13,6 +13,7 @@ public class DataOutputExample {
         user.setName("John");
         user.setLastName("Black");
         user.setBirthday(new int[]{5, 5, 1998});
+        user.setAddress(new Address("main", 100, "Kiev"));
 
         writeUser(user);
 
@@ -23,8 +24,8 @@ public class DataOutputExample {
 
     private static User readUser() throws IOException {
         File file = new File(FILE);
-        InputStream is = new GZIPInputStream(
-                new BufferedInputStream(
+        InputStream is = new BufferedInputStream(
+                new GZIPInputStream(
                     new FileInputStream(file)));
         DataInput input = new DataInputStream(is);
         User result = new User();
@@ -35,6 +36,10 @@ public class DataOutputExample {
             birthday[index] = input.readInt();
         }
         result.setBirthday(birthday);
+        Address address =
+                new Address(input.readUTF(), input.readInt(), input.readUTF());
+
+        result.setAddress(address);
         is.close();
         return result;
     }
@@ -51,9 +56,14 @@ public class DataOutputExample {
         output.writeUTF(user.getName());
         output.writeUTF(user.getLastName());
         output.writeInt(user.getBirthday().length);
-        for (int sal : user.getBirthday()) {
-            output.writeInt(sal);
+
+        for (int elem : user.getBirthday()) {
+            output.writeInt(elem);
         }
+        Address address = user.getAddress();
+        output.writeUTF(address.getStreet());
+        output.writeInt(address.getApt());
+        output.writeUTF(address.getCity());
         os.flush();
         os.close();
     }
