@@ -1,6 +1,8 @@
 package edu.source.it.lectures.lecture10.examples.serialization;
 
-public class Address implements Cloneable {
+import java.io.Serializable;
+
+public class Address implements Cloneable, Serializable {
     private String street;
     private int apt;
     private String city;

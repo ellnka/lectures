@@ -8,6 +8,7 @@ public class User implements Cloneable, Serializable {
     private String lastName;
     private /*transient*/ int[] birthday;
     private Address address;
+
     public String getName() {
         return name;
     }
