@@ -21,7 +21,7 @@ public class Application {
         }
     }
 
-    private static List<Account> createAccounts(int quantity) {
+    public static List<Account> createAccounts(int quantity) {
         Random random = new Random();
         List<Account> accounts = new ArrayList<>();
         for (int index = 0; index < quantity; index++) {
