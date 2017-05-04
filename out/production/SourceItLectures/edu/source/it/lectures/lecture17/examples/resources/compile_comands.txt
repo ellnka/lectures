@@ -1,0 +1,33 @@
+#Compile HelloWorldPrinter.java -> HelloWorldPrinter.class
+javac HelloWorldPrinter.java
+
+#Compile all java files from folder .
+javac -sourcepath .  *.java
+
+
+#Compile all java files from folder . and adding classpath folder
+javac -sourcepath . -cp ../lib/ *.java
+
+#Create jar form class files
+jar cvf HelloWorldPrinter.jar *
+
+
+#Create jar form class files and include manifest
+jar cvfm HelloWorldPrinter.jar ./resources/manifest.txt *
+
+#Run executable jar
+java -jar HelloWorldPrinter.jar
+
+
+#Java memory options
+
+#HEAP!
+java -Xmx2048m -Xms256m
+
+#Usage examples:
+-Xmx1024k
+-Xmx512m
+-Xmx8g
+
+#PERMANENT GENERATION
+java -XX:PermSize=512m -XX:MaxPermSize=512m

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: edu.source.it.lectures.lecture17.examples.HelloWorldPrinter
+Class-Path: .
+

@@ -5,3 +5,5 @@
 *.class
 .idea
 /.idea
+/.DS_Store
+
